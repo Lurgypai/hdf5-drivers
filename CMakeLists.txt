@@ -1288,4 +1288,14 @@ if (EXISTS "${HDF5_SOURCE_DIR}/HDF5Examples" AND IS_DIRECTORY "${HDF5_SOURCE_DIR
   endif ()
 endif ()
 
+#-----------------------------------------------------------------------------
+# Option to build fuzz drivers
+#-----------------------------------------------------------------------------
+if (EXISTS "${HDF5_SOURCE_DIR}/fuzzers" AND IS_DIRECTORY "${HDF5_SOURCE_DIR}/fuzzers")
+  option (HDF5_BUILD_FUZZERS  "Build HDF5 Fuzz Drivers" OFF)
+  if (HDF5_BUILD_FUZZERS)
+    add_subdirectory (fuzzers)
+  endif ()
+endif ()
+
 include (CMakeInstallation.cmake)
