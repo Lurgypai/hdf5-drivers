@@ -1292,7 +1292,10 @@ endif ()
 # Option to build fuzz drivers
 #-----------------------------------------------------------------------------
 if (EXISTS "${HDF5_SOURCE_DIR}/fuzzers" AND IS_DIRECTORY "${HDF5_SOURCE_DIR}/fuzzers")
+  # option to build fuzz driver
   option (HDF5_BUILD_FUZZERS  "Build HDF5 Fuzz Drivers" OFF)
+  # setting for afl location
+  set(HDF5_AFL_PATH "" CACHE STRING "Path to AFLDriver library for Fuzz Drivers")
   if (HDF5_BUILD_FUZZERS)
     add_subdirectory (fuzzers)
   endif ()

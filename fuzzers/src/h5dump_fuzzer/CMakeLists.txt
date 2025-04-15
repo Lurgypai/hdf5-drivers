@@ -14,7 +14,7 @@ add_executable (h5dump-fuzzer
     ${HDF5_TOOLS_SRC_H5DUMP_SOURCE_DIR}/h5dump_ddl.h
     ${HDF5_TOOLS_SRC_H5DUMP_SOURCE_DIR}/h5dump_xml.h
 )
-target_link_directories (h5dump-fuzzer PRIVATE "/workspace/AFLplusplus")
+target_link_directories (h5dump-fuzzer PRIVATE ${HDF5_AFL_PATH})
 target_include_directories (h5dump-fuzzer PRIVATE "${HDF5_TOOLS_SRC_H5DUMP_SOURCE_DIR};${HDF5_TOOLS_ROOT_DIR}/lib;${HDF5_SRC_INCLUDE_DIRS};${HDF5_SRC_BINARY_DIR};$<$<BOOL:${HDF5_ENABLE_PARALLEL}>:${MPI_C_INCLUDE_DIRS}>")
 target_compile_options(h5dump-fuzzer PRIVATE "${HDF5_CMAKE_C_FLAGS}")
 if (HDF5_BUILD_STATIC_TOOLS)
