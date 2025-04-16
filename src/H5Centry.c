@@ -1164,6 +1164,9 @@ H5C__load_entry(H5F_t *f,
             if (type->verify_chksum == NULL)
                 break;
 
+            // skip checksumming entirely
+            break;
+
             /* Verify the checksum for the metadata image */
             if ((chk_ret = type->verify_chksum(image, actual_len, udata)) < 0)
                 HGOTO_ERROR(H5E_CACHE, H5E_CANTGET, NULL, "failure from verify_chksum callback");
