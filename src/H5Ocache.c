@@ -222,9 +222,6 @@ H5O__cache_verify_chksum(const void *_image, size_t len, void *_udata)
 
     FUNC_ENTER_PACKAGE
 
-    // disable checksumming behaviour
-    goto done;
-
     assert(image);
     assert(udata);
 
